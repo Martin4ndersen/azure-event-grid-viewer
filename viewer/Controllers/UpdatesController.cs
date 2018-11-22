@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.Mvc;
 using viewer.Hubs;
 using viewer.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace viewer.Controllers
 {
@@ -44,6 +45,7 @@ namespace viewer.Controllers
         #region Public Methods
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Post()
         {
             using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
